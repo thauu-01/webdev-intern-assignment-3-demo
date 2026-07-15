@@ -5,7 +5,7 @@
   "main": "dist/index.js",
   "scripts": {
     "dev": "nodemon --watch src --ext ts --exec tsx src/index.ts",
-    "build": "tsc",
+    "build": "echo 'Skipping tsc build, Vercel compiles ts files at runtime'",
     "start": "node dist/index.js",
     "migrate": "tsx src/migrations/createIndexes.ts",
     "seed": "tsx src/seed/seedStudents.ts",
