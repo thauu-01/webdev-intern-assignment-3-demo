@@ -1,0 +1,19 @@
+import axios from 'axios';
+
+const apiClient = axios.create({
+  baseURL: import.meta.env.VITE_API_URL ?? '/api',
+  timeout: 15_000,
+  headers: { 'Content-Type': 'application/json' },
+});
+
+// Response interceptor — normalise errors
+apiClient.interceptors.response.use(
+  (response) => response,
+  (error) => {
+    const message: string =
+      error.response?.data?.message ?? error.message ?? 'Unknown error occurred';
+    return Promise.reject(new Error(message));
+  }
+);
+
+export default apiClient;

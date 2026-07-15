@@ -1,0 +1,49 @@
+@import url('https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-rubik: 'Rubik', sans-serif;
+
+  /* Brand palette */
+  --color-brand-50:  #eef2ff;
+  --color-brand-100: #e0e7ff;
+  --color-brand-200: #c7d2fe;
+  --color-brand-300: #a5b4fc;
+  --color-brand-400: #818cf8;
+  --color-brand-500: #6366f1;
+  --color-brand-600: #4f46e5;
+  --color-brand-700: #4338ca;
+  --color-brand-800: #3730a3;
+  --color-brand-900: #312e81;
+
+  /* Score level colours */
+  --color-score-excellent: #10b981; /* emerald-500 */
+  --color-score-good:      #3b82f6; /* blue-500    */
+  --color-score-average:   #f59e0b; /* amber-500   */
+  --color-score-poor:      #ef4444; /* red-500     */
+
+  /* Surface */
+  --color-surface:         #0f172a; /* slate-900 */
+  --color-surface-card:    #1e293b; /* slate-800 */
+  --color-surface-border:  #334155; /* slate-700 */
+}
+
+/* ── Base ──────────────────────────────────────────────────────────────────── */
+*, *::before, *::after { box-sizing: border-box; }
+
+html {
+  font-family: var(--font-rubik);
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: #f1f5f9; /* slate-100 */
+  color: #0f172a; /* slate-900 */
+  min-height: 100dvh;
+  margin: 0;
+}
+
+/* ── Scrollbar ─────────────────────────────────────────────────────────────── */
+::-webkit-scrollbar       { width: 6px; height: 6px; }
+::-webkit-scrollbar-track { background: var(--color-surface); }
+::-webkit-scrollbar-thumb { background: var(--color-surface-border); border-radius: 3px; }
