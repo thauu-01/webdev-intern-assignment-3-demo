@@ -1,0 +1,10 @@
+{
+  "public": false,
+  "cleanUrls": true,
+  "rewrites": [
+    {
+      "source": "/(.*)",
+      "destination": "frontend/index.html"
+    }
+  ]
+}
