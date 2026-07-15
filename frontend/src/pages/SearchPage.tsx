@@ -8,13 +8,11 @@ export default function SearchPage() {
   const [result, setResult] = useState<StudentResult | null>(null);
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
-  const [hasSearched, setHasSearched] = useState(false);
 
   const handleSearch = async (sbd: string) => {
     setIsLoading(true);
     setError(null);
     setResult(null);
-    setHasSearched(true);
     
     try {
       const data = await studentService.getBySbd(sbd);
