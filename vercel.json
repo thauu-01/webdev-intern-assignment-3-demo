@@ -1,29 +1,10 @@
 {
-  "services": {
-    "frontend": {
-      "root": "frontend",
-      "framework": "vite",
-      "buildCommand": "vite build"
-    },
-    "backend": {
-      "root": "backend",
-      "entrypoint": "src/index.ts"
-    }
-  },
+  "public": false,
+  "cleanUrls": true,
   "rewrites": [
     {
-      "source": "/api(/.*)?",
-      "destination": {
-        "type": "service",
-        "service": "backend"
-      }
-    },
-    {
       "source": "/(.*)",
-      "destination": {
-        "type": "service",
-        "service": "frontend"
-      }
+      "destination": "frontend/index.html"
     }
   ]
 }
