@@ -19,12 +19,22 @@ const allowedOrigins = (process.env.CORS_ORIGINS ?? 'http://localhost:5173').spl
 app.use(
   cors({
     origin: (origin, callback) => {
-      // Allow requests with no origin (e.g. Postman, curl)
-      if (!origin || allowedOrigins.includes(origin)) {
-        callback(null, true);
-      } else {
-        callback(new Error(`Origin ${origin} not allowed by CORS`));
+      // Allow requests with no origin
+      if (!origin) {
+        return callback(null, true);
       }
+
+      // Allow local development
+      if (origin.startsWith('http://localhost') || allowedOrigins.includes(origin)) {
+        return callback(null, true);
+      }
+
+      // Allow any Vercel preview domains
+      if (origin.endsWith('.vercel.app')) {
+        return callback(null, true);
+      }
+
+      callback(new Error(`Origin ${origin} not allowed by CORS`));
     },
     credentials: true,
   })
