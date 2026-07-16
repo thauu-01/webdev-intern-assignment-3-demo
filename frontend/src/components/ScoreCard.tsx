@@ -10,9 +10,9 @@ export default function ScoreCard({ result }: ScoreCardProps) {
       <div className="bg-white border border-slate-200 rounded-xl p-6 shadow-md max-w-2xl">
         <h2 className="text-xl font-bold text-slate-800 mb-4 flex items-center gap-2">
           <span className="w-1.5 h-6 bg-emerald-500 rounded-full"></span>
-          Detailed Scores
+          Bảng điểm chi tiết
         </h2>
-        <p className="text-slate-500">Detailed view of search scores here!</p>
+        <p className="text-slate-500">Nhập số báo danh để xem bảng điểm chi tiết của thí sinh.</p>
       </div>
     );
   }
@@ -39,7 +39,7 @@ export default function ScoreCard({ result }: ScoreCardProps) {
         <div>
           <h2 className="text-xl font-bold text-slate-800 flex items-center gap-2">
             <span className="w-1.5 h-6 bg-emerald-500 rounded-full"></span>
-            Detailed Scores
+            Bảng điểm chi tiết
           </h2>
           <p className="text-sm text-slate-500 mt-1">Số báo danh: <span className="font-semibold text-amber-600">{result.sbd}</span></p>
         </div>

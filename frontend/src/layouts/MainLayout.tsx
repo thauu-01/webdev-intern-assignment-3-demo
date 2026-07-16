@@ -46,7 +46,7 @@ export default function MainLayout() {
           <div className="mt-auto border-t border-slate-900/10 pt-4 text-xs text-slate-800 font-medium">
             G-Scores © {new Date().getFullYear()}
             <br />
-            THPT 2024 Exam Lookup
+            Tra cứu điểm thi THPT 2024
           </div>
         </aside>
 

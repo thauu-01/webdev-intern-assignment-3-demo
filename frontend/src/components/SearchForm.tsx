@@ -26,19 +26,19 @@ export default function SearchForm({ onSearch, isLoading }: SearchFormProps) {
     <div className="bg-white border border-slate-200 rounded-xl p-6 shadow-md max-w-2xl">
       <h2 className="text-xl font-bold text-slate-800 mb-4 flex items-center gap-2">
         <span className="w-1.5 h-6 bg-amber-400 rounded-full"></span>
-        User Registration
+        Tra cứu thí sinh
       </h2>
       <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
         <div>
           <label htmlFor="sbd" className="block text-sm font-medium text-slate-600 mb-2">
-            Registration Number:
+            Số báo danh:
           </label>
           <div className="flex flex-col sm:flex-row gap-3">
             <div className="relative flex-1">
               <input
                 id="sbd"
                 type="text"
-                placeholder="Enter registration number (e.g. 01000001)"
+                placeholder="Nhập số báo danh (vd: 01000001)"
                 {...register('sbd', {
                   required: 'Số báo danh là bắt buộc',
                   pattern: {
@@ -70,7 +70,7 @@ export default function SearchForm({ onSearch, isLoading }: SearchFormProps) {
                   <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z" />
                 </svg>
               ) : (
-                'Submit'
+                'Tra cứu'
               )}
             </button>
           </div>
