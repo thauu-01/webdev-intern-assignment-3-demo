@@ -19,7 +19,10 @@ export default function MainLayout() {
 
       <div className="flex flex-1">
         {/* ── Sidebar (Yellow to Green gradient) ── */}
-        <aside className="w-16 md:w-64 bg-gradient-to-b from-amber-400 via-emerald-500 to-teal-700 text-slate-900 flex flex-col p-3 md:p-6 shadow-xl transition-all duration-300">
+        <aside 
+          style={{ background: 'linear-gradient(to bottom, #fbbf24, #10b981, #0f766e)' }}
+          className="w-16 md:w-64 text-slate-900 flex flex-col p-3 md:p-6 shadow-xl transition-all duration-300"
+        >
           <div className="mb-8">
             <h2 className="text-[10px] md:text-xs font-bold uppercase tracking-widest text-slate-800/80 mb-4 text-center md:text-left">Menu</h2>
             <nav className="flex flex-col gap-2">

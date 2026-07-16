@@ -130,8 +130,8 @@ export default function RankingPage() {
                   </div>
                 </div>
                 <div className="text-right">
-                  <div className="text-xs text-slate-400 font-medium">Tổng điểm</div>
-                  <div className="text-xl font-black text-amber-650 mt-0.5">{student.total.toFixed(2)}</div>
+                  <div className="text-xs text-slate-500 font-bold">Tổng điểm</div>
+                  <div className="text-xl font-black text-amber-650 mt-0.5" style={{ color: '#d97706' }}>{student.total.toFixed(2)}</div>
                 </div>
               </div>
             ))}
