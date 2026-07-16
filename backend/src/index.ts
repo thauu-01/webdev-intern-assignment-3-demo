@@ -13,7 +13,7 @@ dotenv.config();
 const app = express();
 const PORT = process.env.PORT ?? 5000;
 
-// ── Middleware ────────────────────────────────────────────────────────────────
+// ── Middleware ───────────────
 const allowedOrigins = (process.env.CORS_ORIGINS ?? 'http://localhost:5173').split(',');
 
 app.use(
@@ -32,7 +32,7 @@ app.use(
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-// ── Routes ────────────────────────────────────────────────────────────────────
+// ── Routes ────────────────────────────
 app.get('/health', (_req, res) => {
   res.json({ status: 'ok', timestamp: new Date().toISOString() });
 });
@@ -41,11 +41,11 @@ app.use('/api/students', studentRoutes);
 app.use('/api/report', reportRoutes);
 app.use('/api/top10', rankingRoutes);
 
-// ── Error Handling ────────────────────────────────────────────────────────────
+// ── Error Handling ──────────
 app.use(notFound);
 app.use(errorHandler);
 
-// ── Bootstrap ─────────────────────────────────────────────────────────────────
+// ── Bootstrap ────────────────────────
 const bootstrap = async () => {
   await connectDB();
   app.listen(PORT, () => {

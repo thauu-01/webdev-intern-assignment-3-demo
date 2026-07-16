@@ -6,7 +6,6 @@ const registry = SubjectRegistry.getInstance();
 
 /**
  * Validate query param ?subject=<key>
- *
  * - Nếu không truyền → thống kê TẤT CẢ môn
  * - Nếu truyền → phải là key hợp lệ trong SubjectRegistry
  */
@@ -35,7 +34,7 @@ export const handleReportValidationErrors = (
       success: false,
       message: 'Tham số không hợp lệ',
       errors: errors.array().map((e) => ({
-        field:   e.type === 'field' ? e.path : 'unknown',
+        field: e.type === 'field' ? e.path : 'unknown',
         message: e.msg,
       })),
     });

@@ -1,36 +1,22 @@
 import { Subject } from './Subject';
-import { MathSubject }       from './subjects/MathSubject';
+import { MathSubject } from './subjects/MathSubject';
 import { LiteratureSubject } from './subjects/LiteratureSubject';
-import { EnglishSubject }    from './subjects/EnglishSubject';
-import { PhysicsSubject }    from './subjects/PhysicsSubject';
-import { ChemistrySubject }  from './subjects/ChemistrySubject';
-import { BiologySubject }    from './subjects/BiologySubject';
-import { HistorySubject }    from './subjects/HistorySubject';
-import { GeographySubject }  from './subjects/GeographySubject';
-import { CivicsSubject }     from './subjects/CivicsSubject';
+import { EnglishSubject } from './subjects/EnglishSubject';
+import { PhysicsSubject } from './subjects/PhysicsSubject';
+import { ChemistrySubject } from './subjects/ChemistrySubject';
+import { BiologySubject } from './subjects/BiologySubject';
+import { HistorySubject } from './subjects/HistorySubject';
+import { GeographySubject } from './subjects/GeographySubject';
+import { CivicsSubject } from './subjects/CivicsSubject';
 
-/**
- * SubjectRegistry — Singleton quản lý danh sách tất cả môn học.
- *
- * NGUYÊN TẮC QUAN TRỌNG:
- *   - Mọi service (ReportService, RankingService) PHẢI lấy danh sách môn
- *     qua SubjectRegistry — không được hardcode tên môn trong service.
- *   - Khi thêm môn mới: chỉ cần tạo subclass Subject và đăng ký tại đây.
- *
- * Cách dùng:
- *   const registry = SubjectRegistry.getInstance();
- *   const allSubjects = registry.getAll();
- *   const math = registry.getByKey('toan');
- *   const groupA = registry.getGroupSubjects('A');
- */
+
 export class SubjectRegistry {
-  // ── Singleton instance ──────────────────────────────────────────────────────
+  // ── Singleton instance 
   private static instance: SubjectRegistry | null = null;
 
-  // ── Danh sách môn — Map để lookup O(1) theo key ─────────────────────────────
+  // ── Danh sách môn — Map để lookup O(1) theo key 
   private readonly subjects: Map<string, Subject>;
-
-  // ── Constructor private — chỉ tạo qua getInstance() ────────────────────────
+  // ── Constructor private — chỉ tạo qua getInstance() 
   private constructor() {
     this.subjects = new Map();
     this.register(
@@ -46,7 +32,7 @@ export class SubjectRegistry {
     );
   }
 
-  // ── Đăng ký môn vào Map ─────────────────────────────────────────────────────
+  // ── Đăng ký môn vào Map ──────────────
   private register(...subjects: Subject[]): void {
     for (const subject of subjects) {
       if (this.subjects.has(subject.key)) {
@@ -56,7 +42,7 @@ export class SubjectRegistry {
     }
   }
 
-  // ── Public API ──────────────────────────────────────────────────────────────
+  // ── Public API ──────────
 
   /** Trả về singleton instance */
   static getInstance(): SubjectRegistry {
@@ -84,7 +70,7 @@ export class SubjectRegistry {
 
   /**
    * getByKeyOrThrow — lấy môn theo key, ném lỗi nếu không tìm thấy.
-   * Dùng khi bắt buộc phải có môn đó (e.g. validate query param).
+   * Dùng khi bắt buộc phải có môn đó 
    */
   getByKeyOrThrow(key: string): Subject {
     const subject = this.subjects.get(key);
@@ -98,8 +84,6 @@ export class SubjectRegistry {
   /**
    * getGroupSubjects — lấy danh sách môn thuộc một khối thi.
    * Dùng SubjectRegistry.isCoreSubjectFor() của từng môn.
-   *
-   * Ví dụ: getGroupSubjects('A') → [MathSubject, PhysicsSubject, ChemistrySubject]
    */
   getGroupSubjects(group: string): Subject[] {
     return this.getAll().filter((s) => s.isCoreSubjectFor(group));
@@ -113,18 +97,12 @@ export class SubjectRegistry {
     return this.getGroupSubjects('A');
   }
 
-  /**
-   * hasKey — kiểm tra key có hợp lệ không.
-   * Dùng cho validator của API /report?subject=<key>
-   */
+
   hasKey(key: string): boolean {
     return this.subjects.has(key);
   }
 
-  /**
-   * getAllKeys — danh sách tất cả key hợp lệ.
-   * Dùng cho error message khi validate.
-   */
+
   getAllKeys(): string[] {
     return Array.from(this.subjects.keys());
   }

@@ -1,10 +1,9 @@
 /**
- * parseScore — chuyển giá trị chuỗi từ CSV thành number | null.
- *
+ * parseScore —chuyển giá trị chuỗi từ CSV thành number | null.
  * Quy tắc:
  *   - Chuỗi rỗng hoặc undefined → null (thí sinh không thi môn đó)
- *   - Số hợp lệ trong [0, 10]   → number
- *   - Giá trị không hợp lệ      → null (không crash seeder)
+ *   - Số hợp lệ trong [0, 10] → number
+ *   - Giá trị không hợp lệ  → null (không crash seeder)
  */
 export function parseScore(value: string | undefined): number | null {
   if (value === undefined || value.trim() === '') return null;
@@ -26,7 +25,7 @@ export function parseString(value: string | undefined): string | null {
 
 /**
  * formatDuration — chuyển milliseconds sang chuỗi dễ đọc.
- * Ví dụ: 125000 → "2m 5s"
+ * 125000 → "2m 5s"
  */
 export function formatDuration(ms: number): string {
   const s = Math.floor(ms / 1000);

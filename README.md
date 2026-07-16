@@ -151,10 +151,12 @@ docker exec g-scores-backend npm run migrate:seed
 ### 2. URL Môi trường Production (Live Demo)
 * **Địa chỉ chạy trực tuyến:** [https://g-scores-deploy.vercel.app/](https://g-scores-deploy.vercel.app/)
 
+### 3. Video demo
+
 ---
 
 ## Liên hệ 📧
 
-* **Tác giả:** Trần Hữu Thoại
+* **Tác giả:** Nguyễn Trung Hậu
 * **Email:** thauu-01@github.com
 * **Mã nguồn dự án:** <https://github.com/thauu-01/webdev-intern-assignment-3-demo.git>

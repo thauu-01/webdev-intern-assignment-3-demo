@@ -43,9 +43,9 @@ for (const [score, expected] of cases) {
 // 4. isCoreSubjectFor
 console.log('\n🏫 Kiểm tra isCoreSubjectFor:');
 const checkGroup = [
-  ['toan',    'A', true],
-  ['toan',    'C', false],
-  ['vat_li',  'A', true],
+  ['toan', 'A', true],
+  ['toan', 'C', false],
+  ['vat_li', 'A', true],
   ['hoa_hoc', 'A', true],
   ['hoa_hoc', 'B', true],
   ['ngu_van', 'D', true],
@@ -65,6 +65,6 @@ const r2 = SubjectRegistry.getInstance();
 const isSame = registry === r2;
 console.log(`\n🔒 Singleton check: ${isSame ? '✅ PASS' : '❌ FAIL'} (same instance)`);
 
-console.log(`\n══════════════════════════════════════════════`);
+console.log(`\n══════════════════════`);
 console.log(`Tổng: ${passed + (isSame ? 1 : 0)}/${cases.length + checkGroup.length + 1} tests passed`);
-console.log('══════════════════════════════════════════════');
+console.log('═══════════════════════════════');

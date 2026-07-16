@@ -1,11 +1,7 @@
 /**
  * Migration: createIndexes
- * ─────────────────────────
  * Ensures all required indexes exist on the `students` collection.
- *
- * Run:  npm run migrate
- *       (or: npx tsx src/migrations/createIndexes.ts)
- *
+ * Run:  npm run migrate or: npx tsx src/migrations/createIndexes.ts)
  * Safe to run multiple times — createIndex is idempotent.
  */
 
@@ -33,13 +29,13 @@ async function createIndexes(): Promise<void> {
 
   const results: IndexResult[] = [];
 
-  // ── 1. Unique index on sbd ─────────────────────────────────────────────────
+  // ── 1. Unique index on sbd 
   try {
     await Student.collection.createIndex(
       { sbd: 1 },
       {
         unique: true,
-        name:   'sbd_unique',
+        name: 'sbd_unique',
         background: true,
       }
     );
@@ -58,7 +54,7 @@ async function createIndexes(): Promise<void> {
     }
   }
 
-  // ── 2. Compound index for Group A ranking query ────────────────────────────
+  // ── 2. Compound index for Group A ranking query ───
   // Filters: vat_li != null, hoa_hoc != null, toan != null
   // Sort by total (toan + vat_li + hoa_hoc) — MongoDB can't index computed fields,
   // so we index each field individually for the $match stage.
@@ -66,11 +62,11 @@ async function createIndexes(): Promise<void> {
     await Student.collection.createIndex(
       { toan: -1, vat_li: -1, hoa_hoc: -1 },
       {
-        name:       'group_a_ranking',
+        name: 'group_a_ranking',
         background: true,
         partialFilterExpression: {
-          toan:    { $type: 'number' },
-          vat_li:  { $type: 'number' },
+          toan: { $type: 'number' },
+          vat_li: { $type: 'number' },
           hoa_hoc: { $type: 'number' },
         },
       }
@@ -88,12 +84,12 @@ async function createIndexes(): Promise<void> {
     }
   }
 
-  // ── Summary ────────────────────────────────────────────────────────────────
-  const created  = results.filter((r) => r.status === 'created').length;
-  const skipped  = results.filter((r) => r.status === 'already_exists').length;
-  const failed   = results.filter((r) => r.status === 'error').length;
+  // ── Summary ─────────────
+  const created = results.filter((r) => r.status === 'created').length;
+  const skipped = results.filter((r) => r.status === 'already_exists').length;
+  const failed = results.filter((r) => r.status === 'error').length;
 
-  console.log('\n── Summary ───────────────────────────────────────────────');
+  console.log('\n── Summary ────────────────');
   console.log(`   Created : ${created}`);
   console.log(`   Skipped : ${skipped}`);
   console.log(`   Failed  : ${failed}`);
@@ -108,7 +104,7 @@ async function createIndexes(): Promise<void> {
 
   // List all current indexes for verification
   const allIndexes = await Student.collection.indexes();
-  console.log('\n── Current indexes on `students` ────────────────────────');
+  console.log('\n── Current indexes on `students` ────');
   allIndexes.forEach((idx) => {
     console.log(`   • ${idx.name}  →  ${JSON.stringify(idx.key)}`);
   });

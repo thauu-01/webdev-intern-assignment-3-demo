@@ -34,6 +34,6 @@ export const getStudentByRegistrationNumber = async (
       data: result,
     });
   } catch (error) {
-    next(error); // chuyển sang global error handler
+    next(error); // global error handler
   }
 };

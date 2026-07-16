@@ -15,7 +15,6 @@ export class RankingService {
 
   /**
    * getTop10GroupA
-   *
    * Lấy danh sách 10 thí sinh điểm cao nhất khối A (Toán, Lý, Hóa).
    * Loại học sinh thiếu 1 trong 3 môn này.
    */
@@ -26,7 +25,7 @@ export class RankingService {
     const physicsKey = 'vat_li';
     const chemistryKey = 'hoa_hoc';
 
-    // Đảm bảo lấy đúng keys từ class đăng ký
+    // lấy đúng keys class đăng ký
     const keys = groupASubjects.map(s => s.key);
     if (!keys.includes(mathKey) || !keys.includes(physicsKey) || !keys.includes(chemistryKey)) {
       throw new Error('RankingService: Thư viện môn học thiếu hoặc sai thông tin khối A');
