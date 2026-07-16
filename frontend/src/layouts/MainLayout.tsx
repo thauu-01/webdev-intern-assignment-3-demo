@@ -1,8 +1,8 @@
 import { Outlet, NavLink } from 'react-router-dom';
 
 const navLinks = [
-  { to: '/', label: 'Search Scores', icon: '🔍', end: true },
-  { to: '/statistics', label: 'Reports', icon: '📊' },
+  { to: '/', label: 'Tra cứu điểm', icon: '🔍', end: true },
+  { to: '/statistics', label: 'Thống kê', icon: '📊' },
   { to: '/ranking', label: 'Top 10 Khối A', icon: '🏆' },
 ];
 
