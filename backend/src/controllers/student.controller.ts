@@ -5,9 +5,7 @@ const studentService = new StudentService();
 
 /**
  * GET /api/students/:registrationNumber
- *
  * Tra cứu điểm theo số báo danh.
- *
  * Response:
  *   200 — tìm thấy, trả về StudentResult
  *   400 — sbd sai định dạng (handled by validator middleware)
@@ -33,7 +31,7 @@ export const getStudentByRegistrationNumber = async (
 
     res.status(200).json({
       success: true,
-      data:    result,
+      data: result,
     });
   } catch (error) {
     next(error); // chuyển sang global error handler

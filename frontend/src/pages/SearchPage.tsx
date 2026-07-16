@@ -1,10 +1,14 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import SearchForm from '../components/SearchForm';
 import ScoreCard from '../components/ScoreCard';
 import { studentService } from '../services/studentService';
 import type { StudentResult } from '../types';
 
 export default function SearchPage() {
+  useEffect(() => {
+    document.title = "G-Scores - Tra cứu điểm số";
+  }, []);
+
   const [result, setResult] = useState<StudentResult | null>(null);
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
@@ -13,7 +17,7 @@ export default function SearchPage() {
     setIsLoading(true);
     setError(null);
     setResult(null);
-    
+
     try {
       const data = await studentService.getBySbd(sbd);
       setResult(data);
@@ -35,7 +39,7 @@ export default function SearchPage() {
 
       <div className="grid grid-cols-1 gap-8">
         <SearchForm onSearch={handleSearch} isLoading={isLoading} />
-        
+
         {/* Loading State */}
         {isLoading && (
           <div className="flex flex-col items-center justify-center p-12 bg-white rounded-xl border border-slate-200 max-w-2xl shadow-md">

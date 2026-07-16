@@ -19,9 +19,9 @@ export default function MainLayout() {
 
       <div className="flex flex-1">
         {/* ── Sidebar (Yellow to Green gradient) ── */}
-        <aside className="w-64 bg-gradient-to-b from-amber-400 via-emerald-500 to-teal-700 text-slate-900 flex flex-col p-6 shadow-xl">
+        <aside className="w-16 md:w-64 bg-gradient-to-b from-amber-400 via-emerald-500 to-teal-700 text-slate-900 flex flex-col p-3 md:p-6 shadow-xl transition-all duration-300">
           <div className="mb-8">
-            <h2 className="text-xs font-bold uppercase tracking-widest text-slate-800/80 mb-4">Menu</h2>
+            <h2 className="text-[10px] md:text-xs font-bold uppercase tracking-widest text-slate-800/80 mb-4 text-center md:text-left">Menu</h2>
             <nav className="flex flex-col gap-2">
               {navLinks.map(({ to, label, icon, end }) => (
                 <NavLink
@@ -29,29 +29,29 @@ export default function MainLayout() {
                   to={to}
                   end={end}
                   className={({ isActive }) =>
-                    `flex items-center gap-3 px-4 py-3 rounded-lg text-sm font-semibold transition-all duration-300 ${
+                    `flex flex-col md:flex-row items-center gap-1 md:gap-3 px-2 md:px-4 py-3 rounded-lg text-[10px] md:text-sm font-semibold transition-all duration-300 ${
                       isActive
                         ? 'bg-slate-900 text-white shadow-lg scale-[1.02]'
                         : 'text-slate-800 hover:bg-slate-900/10 hover:text-slate-950'
                     }`
                   }
                 >
-                  <span>{icon}</span>
-                  <span>{label}</span>
+                  <span className="text-lg md:text-base">{icon}</span>
+                  <span className="hidden md:inline">{label}</span>
+                  <span className="inline md:hidden text-[9px] font-bold mt-0.5">{label.split(' ')[0]}</span>
                 </NavLink>
               ))}
             </nav>
           </div>
           
-          <div className="mt-auto border-t border-slate-900/10 pt-4 text-xs text-slate-800 font-medium">
-            G-Scores © {new Date().getFullYear()}
-            <br />
-            Tra cứu điểm thi THPT 2024
+          <div className="mt-auto border-t border-slate-900/10 pt-4 text-[9px] md:text-xs text-slate-800 font-medium text-center md:text-left">
+            <span className="hidden md:inline">G-Scores © {new Date().getFullYear()}<br />Tra cứu điểm thi THPT 2024</span>
+            <span className="inline md:hidden font-bold">G©24</span>
           </div>
         </aside>
 
         {/* ── Content Area ── */}
-        <main className="flex-1 p-8 bg-slate-100 overflow-y-auto">
+        <main className="flex-1 p-4 md:p-8 bg-slate-100 overflow-y-auto">
           <Outlet />
         </main>
       </div>

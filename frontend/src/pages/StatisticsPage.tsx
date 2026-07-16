@@ -22,6 +22,8 @@ export default function StatisticsPage() {
   const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
+    document.title = "G-Scores - Thống kê điểm thi";
+
     const fetchReport = async () => {
       setIsLoading(true);
       setError(null);

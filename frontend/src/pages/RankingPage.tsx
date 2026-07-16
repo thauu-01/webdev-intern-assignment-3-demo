@@ -8,6 +8,8 @@ export default function RankingPage() {
   const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
+    document.title = "G-Scores - Top 10 Khối A";
+
     const fetchRankings = async () => {
       setIsLoading(true);
       setError(null);
@@ -73,15 +75,14 @@ export default function RankingPage() {
                   <tr key={student.sbd} className="hover:bg-slate-50 transition-colors">
                     <td className="px-6 py-4 text-center">
                       <span
-                        className={`inline-flex items-center justify-center w-8 h-8 rounded-full font-bold text-sm ${
-                          student.rank === 1
+                        className={`inline-flex items-center justify-center w-8 h-8 rounded-full font-bold text-sm ${student.rank === 1
                             ? 'bg-yellow-400 text-slate-950 ring-4 ring-yellow-400/20'
                             : student.rank === 2
-                            ? 'bg-slate-300 text-slate-950 ring-4 ring-slate-300/20'
-                            : student.rank === 3
-                            ? 'bg-amber-600 text-white ring-4 ring-amber-600/20'
-                            : 'bg-slate-200 text-slate-600'
-                        }`}
+                              ? 'bg-slate-300 text-slate-950 ring-4 ring-slate-300/20'
+                              : student.rank === 3
+                                ? 'bg-amber-600 text-white ring-4 ring-amber-600/20'
+                                : 'bg-slate-200 text-slate-600'
+                          }`}
                       >
                         {student.rank}
                       </span>
@@ -108,15 +109,14 @@ export default function RankingPage() {
               >
                 <div className="flex items-center gap-4">
                   <span
-                    className={`inline-flex items-center justify-center w-10 h-10 rounded-full font-black text-base shrink-0 ${
-                      student.rank === 1
+                    className={`inline-flex items-center justify-center w-10 h-10 rounded-full font-black text-base shrink-0 ${student.rank === 1
                         ? 'bg-yellow-400 text-slate-950'
                         : student.rank === 2
-                        ? 'bg-slate-300 text-slate-950'
-                        : student.rank === 3
-                        ? 'bg-amber-600 text-white'
-                        : 'bg-slate-200 text-slate-600'
-                    }`}
+                          ? 'bg-slate-300 text-slate-950'
+                          : student.rank === 3
+                            ? 'bg-amber-600 text-white'
+                            : 'bg-slate-200 text-slate-600'
+                      }`}
                   >
                     #{student.rank}
                   </span>
