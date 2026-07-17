@@ -4,6 +4,7 @@
 ## Giới thiệu chung
 
 **G-Scores** là một hệ thống tra cứu và phân tích thống kê điểm thi tốt nghiệp THPT Quốc gia năm 2024 trực quan và tối ưu hiệu năng. Hệ thống quản lý và xử lý dữ liệu lớn thực tế từ hơn 1 triệu thí sinh, cho phép người dùng tra cứu điểm thi tức thời theo số báo danh, xem biểu đồ phân tích tỷ lệ học lực các môn học trên toàn quốc, và theo dõi bảng xếp hạng Top 10 thí sinh điểm cao nhất khối A.
+![alt text](screenshots/image.png)
 
 ## Mục lục (Table of Contents)
 
@@ -19,7 +20,7 @@
 
 Các chức năng chính được xây dựng tối ưu hóa trải nghiệm người dùng trên mọi thiết bị:
 
-### 1. Tra cứu điểm số theo SBD
+### 1. Tra cứu điểm số theo Số báo danh
 * Tra cứu điểm số tức thì bằng cách nhập Số báo danh (đúng định dạng 8 chữ số).
 * Hiển thị bảng điểm chi tiết các môn thi đã đăng ký của thí sinh.
 * Phân loại tự động mức học lực của từng môn học (Giỏi, Khá, Trung bình, Yếu) dựa trên thuật toán OOP domain chặt chẽ.
@@ -152,6 +153,9 @@ docker exec g-scores-backend npm run migrate:seed
 * **Địa chỉ chạy trực tuyến:** [https://g-scores-deploy.vercel.app/](https://g-scores-deploy.vercel.app/)
 
 ### 3. Video demo
+<video src="video/demo.mp4" controls width="100%" style="max-width: 800px;">
+  Trình duyệt của bạn không hỗ trợ phát thẻ video. Bạn có thể <a href="video/demo.mp4">tải video demo tại đây</a>.
+</video>
 
 ---
 
