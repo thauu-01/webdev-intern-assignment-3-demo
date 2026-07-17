@@ -153,9 +153,7 @@ docker exec g-scores-backend npm run migrate:seed
 * **Địa chỉ chạy trực tuyến:** [https://g-scores-deploy.vercel.app/](https://g-scores-deploy.vercel.app/)
 
 ### 3. Video demo
-<video src="video/demo.mp4" controls width="100%" style="max-width: 800px;">
-  Trình duyệt của bạn không hỗ trợ phát thẻ video. Bạn có thể <a href="video/demo.mp4">tải video demo tại đây</a>.
-</video>
+![G-Scores Demo](video/demo.gif)
 
 ---
 
